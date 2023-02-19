@@ -1,4 +1,4 @@
-
+https://nastusya-max.github.io/product-dimensions/
 # Create control that can be used for displaying multiple product dimensions.
 
 Control should receive and display array of elements called 'custom product dimensions' 
