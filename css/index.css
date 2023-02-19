@@ -28,3 +28,10 @@ button {
   padding: 0.5rem 0.9rem;
   font-size: 1.2rem;
 }
+
+.selected-data {
+  text-align: center;
+  display: block;
+  padding-top: 1rem;
+  color: #ffff;
+}
