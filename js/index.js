@@ -16,7 +16,11 @@ const getSelectValue = () => {
   const selectList = document.querySelectorAll(".select");
 
   let resultStr = Array.from(selectList).reduce((str, item) => {
-    return str + " " + item.value;
+    if (item.value) {
+      return str + " " + item.value;
+    } else {
+      return "Not all values selected";
+    }
   }, "");
 
   return resultStr;
@@ -79,5 +83,6 @@ const btn = document.querySelector("#formButton");
 
 btn.addEventListener("click", (event) => {
   event.preventDefault();
+  document.querySelector(".selected-data").innerHTML = getSelectValue();
   console.log(getSelectValue());
 });
