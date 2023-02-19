@@ -1,0 +1,59 @@
+[
+  {
+    "dimensionId": "1",
+    "dimensionName": "Style",
+    "selectLabel": "Select a style",
+    "values": [
+      {
+        "valueId": "style-1",
+        "title": "Style 1"
+      },
+      {
+        "valueId": "style-2",
+        "title": "Style 2"
+      },
+      {
+        "valueId": "style-3",
+        "title": "Style 3"
+      }
+    ]
+  },
+  {
+    "dimensionId": "2",
+    "dimensionName": "Size",
+    "selectLabel": "Select a size",
+    "values": [
+      {
+        "valueId": "size-s",
+        "title": "S"
+      },
+      {
+        "valueId": "size-l",
+        "title": "L"
+      },
+      {
+        "valueId": "size-xl",
+        "title": "XL"
+      }
+    ]
+  },
+  {
+    "dimensionId": "3",
+    "dimensionName": "Color",
+    "selectLabel": "Select a color",
+    "values": [
+      {
+        "valueId": "color-black",
+        "title": "Black"
+      },
+      {
+        "valueId": "color-grey",
+        "title": "Grey"
+      },
+      {
+        "valueId": "color-purple",
+        "title": "Purple"
+      }
+    ]
+  }
+]

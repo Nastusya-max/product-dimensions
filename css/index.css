@@ -1,0 +1,30 @@
+body {
+  font-family: arial;
+}
+
+form {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+  padding: 3rem;
+  width: 30%;
+  background-color: #80c2ee;
+}
+
+form div {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+select {
+  margin: 1rem 0;
+  padding: 0.5rem;
+}
+
+button {
+  margin: 0 auto;
+  display: block;
+  padding: 0.5rem 0.9rem;
+  font-size: 1.2rem;
+}
