@@ -9,14 +9,23 @@
   </head>
   <body>
     <form>
-      <div data-bind="foreach: dimensions">
+      <div data-bind="foreach: dimensions ">
         <span data-bind="text: dimensionName"> </span>
         <select
-          data-bind="attr:{id: 'dimension'+ dimensionId, class: 'select'}, options: values, optionsText: 'title', optionsValue: 'valueId', optionsCaption: selectLabel"
+          data-bind="value: values, 
+          enable: dimensionId == 1 ? true : false,
+          event: { change: $parent.checkSelect},
+          attr:{id: 'dimension'+ dimensionId, class: 'select'}, 
+          options: values, 
+          optionsText: 'title', 
+          optionsValue: 'valueId',
+          optionsCaption: selectLabel"
         ></select>
       </div>
-      <button id="formButton" type="submit">To console</button>
-      <span class="selected-data"></span>
+
+      <button data-bind="click: getSelected">To console</button>
+
+      <span class="selected-data" data-bind="text: str"></span>
     </form>
 
     <script
