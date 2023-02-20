@@ -55,5 +55,62 @@
         "title": "Purple"
       }
     ]
+  },
+  {
+    "dimensionId": "4",
+    "dimensionName": "Feature1",
+    "selectLabel": "Select a feature1",
+    "values": [
+      {
+        "valueId": "feature11-id",
+        "title": "feature11 title"
+      },
+      {
+        "valueId": "feature12-id",
+        "title": "feature12 title"
+      },
+      {
+        "valueId": "feature13-id",
+        "title": "feature13 title"
+      }
+    ]
+  },
+  {
+    "dimensionId": "5",
+    "dimensionName": "Feature2",
+    "selectLabel": "Select a feature2",
+    "values": [
+      {
+        "valueId": "feature21-id",
+        "title": "feature21 title"
+      },
+      {
+        "valueId": "feature22-id",
+        "title": "feature22 title"
+      },
+      {
+        "valueId": "feature23-id",
+        "title": "feature23 title"
+      }
+    ]
+  },
+  {
+    "dimensionId": "6",
+    "dimensionName": "Feature3",
+    "selectLabel": "Select a feature3",
+    "values": [
+      {
+        "valueId": "feature31-id",
+        "title": "feature31 title"
+      },
+      {
+        "valueId": "feature32-id",
+        "title": "feature32 title"
+      },
+      {
+        "valueId": "feature33-id",
+        "title": "feature33 title"
+      }
+    ]
   }
 ]
