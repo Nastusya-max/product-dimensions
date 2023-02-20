@@ -11,78 +11,54 @@ const getData = async (str) => {
   }
   return data;
 };
-//returns a string of selected values
-const getSelectValue = () => {
-  const selectList = document.querySelectorAll(".select");
 
-  let resultStr = Array.from(selectList).reduce((str, item) => {
-    if (item.value) {
-      return str + " " + item.value;
-    } else {
-      return "Not all values selected";
-    }
-  }, "");
-
-  return resultStr;
-};
-
-const controlSelect = () => {
-  const selectList = Array.from(document.querySelectorAll(".select"));
-
-  selectList.forEach((item, index) => {
-    index != 0 ? (item.disabled = true) : (item.disabled = false); //set the initial state of the select elements
-
-    item.onchange = onChange;
-    onChange(item);
-  });
-
-  function onChange(item) {
-    const currentSelect = item.target;
-
-    if (currentSelect) {
-      //when changing the first select, the rest are reset
-      if (selectList.indexOf(currentSelect) == 0) {
-        selectList.forEach((item, index) => {
-          if (index != 0) {
-            item.children[0].selected = true;
-            item.disabled = true;
-          }
-        });
-      }
-
-      const nextIndex = selectList.indexOf(currentSelect) + 1; //to go to the next select
-
-      if (nextIndex < selectList.length) {
-        selectList[nextIndex].disabled = false; //when you change the current select, the next select becomes available
-      }
-    }
-  }
-};
-
-window.onload = () => {
-  getData("./assets/dimensions.json")
-    .then((data) => {
-      promise = new Promise((resolve) => {
-        class ViewModel {
-          constructor() {
-            this.values = ko.observableArray(data);
-            this.dimensions = ko.observableArray(data);
-          }
+getData("./assets/dimensions.json")
+  .then((data) => {
+    promise = new Promise((resolve) => {
+      class ViewModel {
+        constructor() {
+          this.values = ko.observableArray(data);
+          this.dimensions = ko.observableArray(data);
         }
-        let vm = new ViewModel();
 
-        resolve(ko.applyBindings(vm));
-      }).then(controlSelect());
-    })
-    .catch((err) => {
-      console.log("Error:", err);
-    });
-};
+        str = ko.observable();
 
-const btn = document.querySelector("#formButton");
+        getSelected = () => {
+          let result = this.values().map((item) => {
+            return item.values;
+          });
+          this.str(JSON.stringify(result));
+          console.log(result);
+        };
 
-btn.addEventListener("click", (event) => {
-  event.preventDefault();
-  document.querySelector(".selected-data").innerHTML = getSelectValue();
-  console.log(getSelectValue());
-});
+        checkSelect = function (obj, event) {
+          if (!event.target.value || data.indexOf(obj) == 0) {
+            data.forEach((item, index) => {
+              const nextSelect = document.getElementById(
+                `dimension${index + 1}`
+              );
+              if (index > data.indexOf(obj) && nextSelect) {
+                item.values = undefined;
+                nextSelect.selectedIndex = 0;
+                nextSelect.disabled = true;
+              }
+            });
+          }
+
+          if (event.target.value) {
+            if (data.indexOf(obj) != data.length - 1) {
+              document.getElementById(
+                `dimension${data.indexOf(obj) + 2}`
+              ).disabled = false;
+            }
+          }
+        };
+      }
+      let vm = new ViewModel();
+
+      resolve(ko.applyBindings(vm));
+    }).then();
+  })
+  .catch((err) => {
+    console.log("Error:", err);
+  });
